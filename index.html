@@ -10,11 +10,18 @@
     <header>
         <nav>
             <h1><span>D</span>GAMES</h1>
+            <div class="div-btn-categorias">
+                <button id="btn-todos" class="btn-categorias">Todos</button>
+                <button id="btn-notebooks" class="btn-categorias">Notebooks</button>
+                <button id="btn-celulares" class="btn-categorias">Celulares</button>
+                <button id="btn-videogames" class="btn-categorias">Videogames</button>
+            </div>
             <ul>
                 <li>
                     <form method="GET">
                         <div class="barra-pesquisa">
                             <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar">
+                            <i class="search-icon"><img src="./src/assets/icons/search_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt=""></i>
                         </div>
                     </form>
                 </li>
@@ -23,6 +30,7 @@
     </header>
 
     <main>
+        <section class="sidebar"></section>
         <section class="cards"></section>
     </main>
     <script src="./src/JS/script.js"></script>
