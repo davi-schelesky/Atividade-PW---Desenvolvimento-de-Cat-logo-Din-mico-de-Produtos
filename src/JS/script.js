@@ -17,6 +17,8 @@ const produtos = [
     ['Monitor Aoc', "Monitor Curvo Ultra 24'' Led HD", 'Periféricos', '900,00', './src/assets/imgs/monitor 1.webp']
 ];
 
+const itensNoCarrinho = [];
+
 //Mapeamento dos itens do HTML
 const sectionCard = document.querySelector(".cards");
 const pesquisa = document.getElementById('pesquisa');
@@ -24,6 +26,10 @@ const btnTodos = document.getElementById('btn-todos');
 const btnNotebooks = document.getElementById('btn-notebooks');
 const btnCelulares = document.getElementById('btn-celulares');
 const btnVideogames = document.getElementById('btn-videogames');
+const btnCarrinho = document.getElementById('btn-carrinho');
+const sectionCarrinho = document.getElementById('section-carrinho');
+const listaCarrinho = document.getElementById('lista-carrinho');
+const esvaziarCarrinhoBtn = document.getElementById('esvaziar-carrinho-btn');
 
 //Função para criar os cards
 function criarCard(categoria){
@@ -51,6 +57,11 @@ function criarCard(categoria){
         img.src = produto[4];
         divImg.appendChild(img);
 
+        const addCarrinhoBtn = document.createElement('button');
+        addCarrinhoBtn.textContent = 'Adicionar ao carrinho';
+        addCarrinhoBtn.classList.add('add-carrinho-btn');
+        addCarrinhoBtn.addEventListener('click', () => adicionarCarrinho(produto));
+
         textPreco.classList.add("preco");
         textCard.textContent = produto[1];
         tituloCard.textContent = produto[0];
@@ -58,11 +69,12 @@ function criarCard(categoria){
         
         divInfo.appendChild(textCard);
         divInfo.appendChild(categoriaCard)
-        divInfo.appendChild(textPreco);
         
         divCard.appendChild(divImg);
         divCard.appendChild(tituloCard);
         divCard.appendChild(divInfo);
+        divCard.appendChild(textPreco);
+        divCard.appendChild(addCarrinhoBtn);
 
         sectionCard.appendChild(divCard);
     });
@@ -99,6 +111,10 @@ function procurarItem(pesquisaDesejada){
     }
 }
 
+function adicionarCarrinho(produto) {
+    itensNoCarrinho.push(produto);
+}
+
 //Acionamento das funções de acordo com a intenção de uso
 criarCard(produtos);
 pesquisa.addEventListener('input', procurarItem);
@@ -106,3 +122,22 @@ btnNotebooks.addEventListener('click', () => procurarItem('Notebooks'));
 btnCelulares.addEventListener('click', () => procurarItem('Celulares'));
 btnVideogames.addEventListener('click', () => procurarItem('Videogames'));
 btnTodos.addEventListener('click', procurarItem);
+
+btnCarrinho.addEventListener('click', renderizarCarrinho);
+
+function renderizarCarrinho() {
+    sectionCarrinho.classList.add('show');
+    listaCarrinho.innerHTML = '';
+
+    itensNoCarrinho.forEach((produto) => {
+        listaCarrinho.innerHTML += `
+            <li>
+                <p>${produto[0]}
+            </li>
+        `;
+    });
+}
+esvaziarCarrinhoBtn.addEventListener('click', () => {
+    itensNoCarrinho.length = 0;
+    renderizarCarrinho();
+});

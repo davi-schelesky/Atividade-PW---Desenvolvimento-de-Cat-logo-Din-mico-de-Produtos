@@ -16,21 +16,25 @@
                 <button id="btn-celulares" class="btn-categorias">Celulares</button>
                 <button id="btn-videogames" class="btn-categorias">Videogames</button>
             </div>
-            <ul>
-                <li>
-                    <form method="GET">
-                        <div class="barra-pesquisa">
-                            <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar">
-                            <i class="search-icon"><img src="./src/assets/icons/search_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt=""></i>
-                        </div>
-                    </form>
-                </li>
-            </ul>
+            <div class="barra-pesquisa">
+                <button id="btn-carrinho">
+                    <i><img src="./src/assets/icons/shopping_cart_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Carrinho"></i>
+                </button>
+
+                <form method="GET">
+                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar">
+                </form>
+                <i class="search-icon"><img src="./src/assets/icons/search_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Pesquisa"></i>
+            </div>
         </nav>
     </header>
 
     <main>
         <section class="cards"></section>
+        <section id="section-carrinho">
+            <ul id="lista-carrinho"></ul>
+            <button id="esvaziar-carrinho-btn">Esvaziar carrinho</button>
+        </section>
     </main>
     <script src="./src/JS/script.js"></script>
 </body>
