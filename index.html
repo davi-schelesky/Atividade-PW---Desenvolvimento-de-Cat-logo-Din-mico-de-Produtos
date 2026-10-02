@@ -18,13 +18,13 @@
             </div>
             <div class="barra-pesquisa">
                 <button id="btn-carrinho">
-                    <i><img src="./src/assets/icons/shopping_cart_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Carrinho"></i>
+                    <i><img src="./src/assets/icons/carrinho.png" alt="Carrinho"></i>
                 </button>
 
                 <form method="GET">
-                    <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar">
+                    <input type="search" name="pesquisa" id="pesquisa" placeholder="Pesquisar">
                 </form>
-                <i class="search-icon"><img src="./src/assets/icons/search_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="Pesquisa"></i>
+                <i class="search-icon"><img src="./src/assets/icons/pesquisa.png" alt="Pesquisa"></i>
             </div>
         </nav>
     </header>
@@ -32,7 +32,9 @@
     <main>
         <section class="cards"></section>
         <section id="section-carrinho">
+            <button id="fechar-carrinho-btn"><img src="./src/assets/icons/fecharCarrinho.png" alt="Fechar carrinho"></button>
             <ul id="lista-carrinho"></ul>
+            <p id="p-preco-carrinho">Preço total: <span id="preco-total-carrinho"></span></p>
             <button id="esvaziar-carrinho-btn">Esvaziar carrinho</button>
         </section>
     </main>
